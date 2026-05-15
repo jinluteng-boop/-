@@ -117,6 +117,7 @@ let tabIndex = 0;
 let sIdx = 0, mIdx = 0, cIdx = 0;
 let userSingle = {}, userMulti = {};
 
+// 试卷切换
 function changePaper() {
     nowPaper = document.getElementById("paperSelect").value;
     sIdx = 0; mIdx = 0; cIdx = 0;
@@ -125,6 +126,7 @@ function changePaper() {
     document.getElementById("resultBox").classList.add("hide");
 }
 
+// 标签切换
 function switchTab(i) {
     tabIndex = i;
     document.querySelectorAll(".tab").forEach((el, idx) => {
@@ -135,6 +137,7 @@ function switchTab(i) {
     });
 }
 
+// 加载单选题
 function loadSingle() {
     const list = paperBank[nowPaper].single;
     const q = list[sIdx];
@@ -165,6 +168,7 @@ function selectSingle(val) {
 function prevSingle() { if (sIdx > 0) { sIdx--; loadSingle(); } }
 function nextSingle() { const l = paperBank[nowPaper].single; if (sIdx < l.length - 1) { sIdx++; loadSingle(); } }
 
+// 加载多选题
 function loadMulti() {
     const list = paperBank[nowPaper].multi;
     const q = list[mIdx];
@@ -188,6 +192,7 @@ function selectMulti(val) {
 function prevMulti() { if (mIdx > 0) { mIdx--; loadMulti(); } }
 function nextMulti() { const l = paperBank[nowPaper].multi; if (mIdx < l.length - 1) { mIdx++; loadMulti(); } }
 
+// 加载案例题
 function loadCase() {
     const q = paperBank[nowPaper].case[cIdx];
     const html = `
@@ -201,6 +206,7 @@ function loadCase() {
 function prevCase() { if (cIdx > 0) { cIdx--; loadCase(); } }
 function nextCase() { const l = paperBank[nowPaper].case; if (cIdx < l.length - 1) { cIdx++; loadCase(); } }
 
+// 自动打分
 function calcTotalScore() {
     let score = 0;
     const sList = paperBank[nowPaper].single;
@@ -215,10 +221,10 @@ function calcTotalScore() {
 
     const box = document.getElementById("resultBox");
     box.classList.remove("hide");
-    const pass = score >= 72 ? "✅ 合格" : "❌ 未达标";
-    box.innerHTML = `<h3>得分：${score} 分（合格线72）</h3><p>${pass}</p>`;
+    box.innerHTML = `<h3>得分：${score} 分（当前为样例题库，仅供测试）</h3>`;
 }
 
+// 重置所有
 function resetAllAnswer() {
     sIdx = mIdx = cIdx = 0;
     userSingle = {}; userMulti = {};
@@ -226,6 +232,7 @@ function resetAllAnswer() {
     document.getElementById("resultBox").classList.add("hide");
 }
 
+// 初始化加载
 function loadAll() {
     loadSingle();
     loadMulti();
