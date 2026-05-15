@@ -1,13 +1,13 @@
 body{font-family:微软雅黑;background:#f5f7fa;margin:0;padding:10px;}
 .container{max-width:700px;margin:30px auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 8px #0002;}
-h1{text-align:center;color:#222;}
+h1{text-align:center;color:#222;font-size:22px;}
 .progress{text-align:right;color:#666;margin-bottom:10px;}
-.qbox{font-size:18px;margin:20px 0;min-height:60px;}
+.qbox{font-size:17px;margin:20px 0;min-height:60px;line-height:1.8;}
 .opts{margin:20px 0;}
 .opt{display:block;width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;text-align:left;font-size:16px;}
 .opt:hover{background:#f0f7ff;}
 .opt.active{background:#1677ff;color:#fff;border-color:#1677ff;}
-.ansbox{margin:15px 0;padding:12px;border-radius:6px;display:none;}
+.ansbox{margin:15px 0;padding:12px;border-radius:6px;display:none;line-height:1.8;}
 .correct{background:#e6f7ef;color:#0b7a4d;}
 .wrong{background:#fff1f0;color:#cf2222;}
 .btns{text-align:center;margin-top:20px;}
