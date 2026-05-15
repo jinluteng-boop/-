@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>二建建筑实务 刷题系统</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二建建筑实务 多套模拟刷题系统</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h1>二建建筑实务 高频题库</h1>
-  <div class="progress">第 <span id="current">1</span> / <span id="total">0</span> 题</div>
+    <div class="container">
+        <h1>二建建筑实务 多套模拟考试系统</h1>
+        <div class="desc">满分120分 | 合格线72分</div>
 
-  <div class="qbox">
-    <div id="question"></div>
-  </div>
+        <!-- 试卷选择下拉 -->
+        <div class="select-box">
+            <label>选择模拟试卷：</label>
+            <select id="paperSelect" onchange="changePaper()">
+                <option value="1">模拟试卷 第一套</option>
+                <option value="2">模拟试卷 第二套</option>
+                <option value="3">模拟试卷 第三套</option>
+            </select>
+        </div>
 
-  <div class="opts" id="options"></div>
+        <div class="tab-wrap">
+            <div class="tab active" onclick="switchTab(0)">单项选择题</div>
+            <div class="tab" onclick="switchTab(1)">多项选择题</div>
+            <div class="tab" onclick="switchTab(2)">案例分析题</div>
+        </div>
 
-  <div class="ansbox" id="answerBox"></div>
+        <div class="content" id="tab0">
+            <div class="q-container" id="singleQBox"></div>
+            <div class="btn-group">
+                <button onclick="prevSingle()">上一题</button>
+                <button onclick="nextSingle()">下一题</button>
+            </div>
+        </div>
 
-  <div class="btns">
-    <button onclick="prevQuestion()">上一题</button>
-    <button onclick="nextQuestion()">下一题</button>
-  </div>
-</div>
+        <div class="content hide" id="tab1">
+            <div class="q-container" id="multiQBox"></div>
+            <div class="btn-group">
+                <button onclick="prevMulti()">上一题</button>
+                <button onclick="nextMulti()">下一题</button>
+            </div>
+        </div>
 
-<script src="script.js"></script>
+        <div class="content hide" id="tab2">
+            <div class="q-container" id="caseQBox"></div>
+            <div class="btn-group">
+                <button onclick="prevCase()">上一题</button>
+                <button onclick="nextCase()">下一题</button>
+            </div>
+        </div>
+
+        <div class="btn-group bottom-btn">
+            <button class="score-btn" onclick="calcTotalScore()">提交试卷 自动打分</button>
+            <button class="reset-btn" onclick="resetAllAnswer()">重置所有</button>
+        </div>
+
+        <div class="result-box hide" id="resultBox"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
